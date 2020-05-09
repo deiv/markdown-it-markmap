@@ -12,20 +12,9 @@ It adds a named fence _mindmap_ to the markdown parser.
 $ yarn add https://github.com/deiv/markdown-it-markmap.git
 ```
 
-## Use
+## Usage
 
-Configure the plugin in markdown-it (see Example).
-
-You should add the needed javascripts from markmap-lib, ex:
-
-```html
-<script src="https://cdn.jsdelivr.net/npm/d3@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.7.4/dist/browser/view.min.js"></script>
-```
-
-## Example
-
-Configure and use the plugin:
+Configure the plugin in markdown-it:
 
 ```js
 var markdownIt = require('markdown-it');
@@ -46,6 +35,22 @@ let mindmapContent = `
 
 console.log(mdi.render(mindmapContent));
 ```
+
+Add needed libraries in browser:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/d3@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.7.4/dist/browser/view.min.js"></script>
+<script>
+    const mindmaps = document.querySelectorAll('.markmap-svg');
+
+    for(const mindmap of mindmaps) {
+        markmap.markmap(mindmap, JSON.parse(mindmap.innerHTML));
+    }
+</script>
+```
+
+## Example
 
 Markdown example:
 ```markdown

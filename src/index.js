@@ -39,7 +39,6 @@ import { transform } from 'markmap-lib/dist/transform';
 const markmapPlugin = (md) => {
 
   const temp = md.renderer.rules.fence.bind(md.renderer.rules);
-  var id = 0;
 
   md.renderer.rules.fence = (tokens, idx, options, env, slf) => {
 
@@ -48,10 +47,10 @@ const markmapPlugin = (md) => {
     if (token.info === 'mindmap') {
       try {
         const data = transform(token.content.trim());
-        return `<svg id="markmap-${id}"></svg><script>markmap.markmap("#markmap-${id++}",${JSON.stringify(data)});</script>`;
+        return `<svg class="markmap-svg">${JSON.stringify(data)}</svg>`;
 
-      } catch (e) {
-        return `<pre>${e}</pre>`
+      } catch (ex) {
+        return `<pre>${ex}</pre>`
       }
     }
 
