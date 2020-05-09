@@ -2,7 +2,7 @@
 export default {
   input: ['src/index.js'],
   output: {
-    file: 'build/index.js',
+    file: 'dist/index.js',
     format: 'umd',
     name: 'markdown-it-markmap',
     sourcemap: true,

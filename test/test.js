@@ -36,7 +36,7 @@
 
 var assert = require('assert');
 var markdownIt = require('markdown-it');
-var markdownItMarkmap = require('../build/index');
+var markdownItMarkmap = require('../dist/index');
 
 const mdi = markdownIt()
 mdi.use(markdownItMarkmap)
