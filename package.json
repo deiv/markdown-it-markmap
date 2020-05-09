@@ -11,12 +11,15 @@
   ],
   "repository": "https://github.com/deiv/markdown-it-markmap.git",
   "license": "MIT",
+  "main": "build/index.js",
+  "module": "src/index.js",
   "scripts": {
     "build": "rimraf build && rollup -c",
     "test": "rimraf build && rollup -c && node test/test.js"
   },
   "files": [
-    "src/index.js"
+    "src/index.js",
+    "build/index.js"
   ],
   "devDependencies": {
     "assert": "^2.0.0",
